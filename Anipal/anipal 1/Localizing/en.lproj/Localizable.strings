@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  anipal 1
+
+  Created by 이예주 on 2021/04/01.
+  
+*/
+
+// 설정 탭
+"User info" = "User info";
+
+"Language" = "Language";
+
+"Concept" = "Concept";
+
+"Favorite" = "Favorite";
+
+"Logout" = "Logout";
+
+// 관심사
+"Choose your favorites." = "Choose you favorites.";
+
+"🍿Movie" = "🍿Movie";
+
+"✈️Travel" = "✈️Travel";
+
+"🎤Sing" = "🎤Sing";
+
+"💪Fitness" = "💪Fitness";
+
+"🎨Design" = "🎨Design";
+
+"🍳Cook" = "🍳Cook";
+
+"🕺Dance" = "🕺Dance";
+
+"📚Book" = "📚Book";
+
+"💅Beauty" = "💅Beauty";
+
+"🛍Shopping" = "🛍Shopping";
+
+"🎮Game" = "🎮Game";
+
+"💻IT" = "💻IT";
+
+"🏛Architecture" = "🏛Architecture";
+
+"💰Economy" = "💰Economy";

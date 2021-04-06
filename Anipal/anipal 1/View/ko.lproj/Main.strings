@@ -1,0 +1,102 @@
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "2xZ-vf-0mp"; */
+"2xZ-vf-0mp.normalTitle" = "Log In";
+
+/* Class = "UILabel"; text = "Young & Joon"; ObjectID = "3p4-Gb-LHR"; */
+"3p4-Gb-LHR.text" = "Young & Joon";
+
+/* Class = "UILabel"; text = "Sex"; ObjectID = "5Ft-DU-uUu"; */
+"5Ft-DU-uUu.text" = "Sex";
+
+/* Class = "UIButton"; normalTitle = "답장하기"; ObjectID = "Bvb-9o-LVD"; */
+"Bvb-9o-LVD.normalTitle" = "답장하기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "C7g-Gg-6GI"; */
+"C7g-Gg-6GI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "ANIPAL"; ObjectID = "Flc-jc-em3"; */
+"Flc-jc-em3.text" = "ANIPAL";
+
+/* Class = "UIButton"; normalTitle = "편지가 답장을 기다리고있어요!"; ObjectID = "LwU-rN-UoF"; */
+"LwU-rN-UoF.normalTitle" = "편지가 답장을 기다리고있어요!";
+
+/* Class = "UIButton"; normalTitle = "버리기"; ObjectID = "N2E-r3-GDK"; */
+"N2E-r3-GDK.normalTitle" = "버리기";
+
+/* Class = "UILabel"; text = "Once sent, you cannot delete or edit a letter. Would you like to send a letter?"; ObjectID = "NaZ-o0-yJ5"; */
+"NaZ-o0-yJ5.text" = "Once sent, you cannot delete or edit a letter. Would you like to send a letter?";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "O80-MI-cqY"; */
+"O80-MI-cqY.normalTitle" = "Select";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "OFx-OD-az8"; */
+"OFx-OD-az8.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "Choose your Animal"; ObjectID = "PZV-7L-c8Y"; */
+"PZV-7L-c8Y.text" = "Choose your Animal";
+
+/* Class = "UISegmentedControl"; RVi-yq-Khf.segmentTitles[0] = "Male"; ObjectID = "RVi-yq-Khf"; */
+"RVi-yq-Khf.segmentTitles[0]" = "Male";
+
+/* Class = "UISegmentedControl"; RVi-yq-Khf.segmentTitles[1] = "Femail"; ObjectID = "RVi-yq-Khf"; */
+"RVi-yq-Khf.segmentTitles[1]" = "Femail";
+
+/* Class = "UISegmentedControl"; RVi-yq-Khf.segmentTitles[2] = "None-binary"; ObjectID = "RVi-yq-Khf"; */
+"RVi-yq-Khf.segmentTitles[2]" = "None-binary";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "T6p-sw-B9F"; */
+"T6p-sw-B9F.normalTitle" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "WNW-GN-hN6"; */
+"WNW-GN-hN6.normalTitle" = "Cancel";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "X2T-Sa-Wmg"; */
+"X2T-Sa-Wmg.title" = "Item 2";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "XDy-TT-3TS"; */
+"XDy-TT-3TS.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YTJ-li-fnN"; */
+"YTJ-li-fnN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "c12-rK-5vC"; */
+"c12-rK-5vC.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "frA-U6-bZH"; */
+"frA-U6-bZH.normalTitle" = "Done";
+
+/* Class = "UIBarButtonItem"; title = "next"; ObjectID = "h30-gA-oph"; */
+"h30-gA-oph.title" = "next";
+
+/* Class = "UIButton"; normalTitle = "Google Login"; ObjectID = "hjl-61-IYf"; */
+"hjl-61-IYf.normalTitle" = "Google Login";
+
+/* Class = "UILabel"; text = "BirthDay"; ObjectID = "iYx-i7-UR1"; */
+"iYx-i7-UR1.text" = "BirthDay";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "j4H-p7-Tdo"; */
+"j4H-p7-Tdo.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "keD-xf-CNr"; */
+"keD-xf-CNr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "nzq-lc-JaN"; */
+"nzq-lc-JaN.text" = "Name";
+
+/* Class = "UITabBarItem"; title = "Setting"; ObjectID = "rZD-Fi-Xxw"; */
+"rZD-Fi-Xxw.title" = "Setting";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "u5Z-h5-iou"; */
+"u5Z-h5-iou.title" = "Item 1";
+
+/* Class = "UILabel"; text = "Joon"; ObjectID = "u7k-88-XBb"; */
+"u7k-88-XBb.text" = "Joon";
+
+/* Class = "UILabel"; text = "Joon"; ObjectID = "wxq-Fm-687"; */
+"wxq-Fm-687.text" = "Joon";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "xl8-4o-YW5"; */
+"xl8-4o-YW5.normalTitle" = "Logout";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "zDS-Yp-wIw"; */
+"zDS-Yp-wIw.text" = "Name";

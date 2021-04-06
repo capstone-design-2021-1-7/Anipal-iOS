@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9vE-Vs-cPo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2JO-eE-gbw">
+            <objects>
+                <viewController id="9vE-Vs-cPo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TnQ-SA-fXX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8LN-4Y-T51">
+                                <rect key="frame" x="0.0" y="876" width="414" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="동물원2-1" translatesAutoresizingMaskIntoConstraints="NO" id="ah1-nC-Dsh">
+                                <rect key="frame" x="0.0" y="104" width="414" height="618"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KK5-23-5DA"/>
+                        <color key="backgroundColor" red="0.0" green="0.52160841229999999" blue="0.81166201829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KK5-23-5DA" firstAttribute="bottom" secondItem="ah1-nC-Dsh" secondAttribute="bottom" constant="140" id="0yN-JP-4yT"/>
+                            <constraint firstItem="KK5-23-5DA" firstAttribute="centerX" secondItem="8LN-4Y-T51" secondAttribute="centerX" id="1MY-0c-d0i"/>
+                            <constraint firstItem="ah1-nC-Dsh" firstAttribute="leading" secondItem="KK5-23-5DA" secondAttribute="leading" id="6dR-SD-JmK"/>
+                            <constraint firstItem="8LN-4Y-T51" firstAttribute="leading" secondItem="KK5-23-5DA" secondAttribute="leading" symbolic="YES" id="Gun-w4-Tj7"/>
+                            <constraint firstAttribute="bottom" secondItem="8LN-4Y-T51" secondAttribute="bottom" constant="20" id="J62-SP-8R5"/>
+                            <constraint firstItem="ah1-nC-Dsh" firstAttribute="trailing" secondItem="KK5-23-5DA" secondAttribute="trailing" id="c48-gG-zZI"/>
+                            <constraint firstItem="ah1-nC-Dsh" firstAttribute="top" secondItem="KK5-23-5DA" secondAttribute="top" constant="60" id="z9k-Lj-HWv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cf8-0A-t67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="330" y="-28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="동물원2-1" width="938" height="937"/>
+    </resources>
+</document>
