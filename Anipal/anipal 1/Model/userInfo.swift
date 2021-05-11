@@ -34,5 +34,11 @@ struct User {
 // Dummy data
  var users: [User] = [
     User(name: "bird", gender: "female", age: 18, birthday: "2021-04-04", email: "abc123@gmail.com", provider: "google", concept: "언어", favorites: ["여행"], languages: ["한국어", "영어"]),
-    User(name: "monkey", gender: "male", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "facebook", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"])
+    User(name: "monkey", gender: "male", age: 43, birthday: "2018-02-13", email: "asdfqwer@gmail.com", provider: "facebook", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "panda", gender: "male", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "google", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "lion", gender: "female", age: 43, birthday: "2020-03-03", email: "asdfqwer@gmail.com", provider: "facebook", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "penguin", gender: "male", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "google", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "black", gender: "female", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "google", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "zebra", gender: "female", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "facebook", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"]),
+    User(name: "pyobeom", gender: "male", age: 43, birthday: "2020-03-23", email: "asdfqwer@gmail.com", provider: "google", concept: "우정", favorites: ["영화", "요리"], languages: ["한국어"])
 ]

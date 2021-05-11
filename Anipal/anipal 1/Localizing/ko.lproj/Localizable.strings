@@ -6,6 +6,112 @@
   
 */
 
+// 로그인
+"Sign In with Facebook" = "페이스북으로 로그인";
+
+"Sign In with Google" = "구글 로그인";
+
+"Sign In with Apple" = "애플 계정으로 로그인";
+
+// 회원가입 탭
+"Already Registered" = "중복 가입";
+
+"This email has already been signed up.\n Please login with another social account" = "이미 가입된 이메일입니다. 다른 소셜로그인 계정으로 로그인해주세요";
+
+"Please enter your information." = "나의 정보를 입력해주세요.";
+
+"Please enter your name" = "이름을 입력하세요";
+
+"Next" = "다음";
+
+"Complete" = "완료";
+
+"Choose your language." = "나의 언어를 선택하세요.";
+
+"Femail" = "여성";
+
+"Mail" = "남성";
+
+"Ok" = "확인";
+
+"Server Error" = "서버 오류";
+
+"Internal server error" = "내부 서버 오류";
+
+// 캐릭터 이름
+"penguin" = "펭귄";
+"cat" = "고양이";
+"dog" = "강아지";
+"rabbit" = "토끼";
+"turtle" = "거북이";
+
+// 언어 목록
+"en-GB" = "영어(영국)";
+"en-AU" = "영어(오스트레일리아)";
+"en-IN" = "영어(인도)";
+"zh-Hans" = "중국어(간체)";
+"zh-Hant" = "중국어(번체)";
+"zh-HK" = "중국어(번체,홍콩)";
+"ja" = "일본어";
+"es" = "스페인어";
+"es-419" = "스페인어(라틴 아메리카)";
+"fr" = "프랑스어";
+"fr-CA" = "프랑스어(캐나다)";
+"de" = "독일어";
+"ru" = "러시아어";
+"pt-BR" = "포르투갈어(브라질)";
+"pt-PT" = "포르투갈어(포르투갈)";
+"it" = "이탈리아어";
+"tr" = "터키어";
+"nl" = "네덜란드어";
+"ar" = "아랍어";
+"th" = "태국어";
+"sv" = "스웨덴어";
+"da" = "덴마크어";
+"vi" = "베트남어";
+"nb" = "노르웨이어(보크말)";
+"pl" = "폴란드어";
+"fi" = "핀란드어";
+"id" = "인도네시아어";
+"he" = "히브라어";
+"el" = "그리스어";
+"ro" = "루마니아어";
+"hu" = "헝가리어";
+"cs" = "체코어";
+"ca" = "카탈로니아어";
+"sk" = "슬로바키아어";
+"uk" = "우크라이나어";
+"hr" = "크로아티아어";
+"ms" = "말레이어";
+"hi" = "힌디어";
+"ko" = "한국어";
+"en" = "영어";
+
+// 편지 리스트 탭
+"+ New" = "+ 랜덤 편지";
+
+"Penpal" = "펜팔";
+
+"Letter" = "내게 온 편지";
+
+"Sorting" = "정렬";
+
+"Newest" = "최신순";
+
+"Frequency" = "빈도순";
+
+"Menu" = "메뉴";
+
+"Delete" = "삭제";
+
+"Block" = "차단";
+
+"Reply" = "답장";
+
+"Send" = "전송";
+
+"Save" = "임시저장";
+
 // 설정 탭
 "User info" = "내 정보";
 
@@ -20,30 +126,47 @@
 // 관심사
 "Choose your favorites." = "관심사를 선택하세요.";
 
-"🍿Movie" = "🍿영화";
+"Movie" = "🍿영화";
 
-"✈️Travel" = "✈️여행";
+"Travel" = "✈️여행";
 
-"🎤Sing" = "🎤노래";
+"Sing" = "🎤노래";
 
-"💪Fitness" = "💪피트니스";
+"Fitness" = "💪피트니스";
 
-"🎨Design" = "🎨디자인";
+"Design" = "🎨디자인";
 
-"🍳Cook" = "🍳요리";
+"Cook" = "🍳요리";
 
-"🕺Dance" = "🕺춤";
+"Dance" = "🕺춤";
 
-"📚Book" = "📚독서";
+"Book" = "📚독서";
 
-"💅Beauty" = "💅미용";
+"Beauty" = "💅미용";
 
-"🛍Shopping" = "🛍쇼핑";
+"Shopping" = "🛍쇼핑";
 
-"🎮Game" = "🎮게임";
+"Game" = "🎮게임";
 
-"💻IT" = "💻IT";
+"IT" = "💻IT";
 
-"🏛Architecture" = "🏛건축";
+"Architecture" = "🏛건축";
 
-"💰Economy" = "💰경제";
+"Economy" = "💰경제";
+
+// 언어레벨
+"Choose your language level" = "언어 수준을 선택하세요.";
+
+"Beginner" = "초급자";
+
+"Intermediate" = "중급자";
+
+"Advanced" = "고급자";
+
+"Cancel" = "취소";
+
+"Level" = "수준";
+
+// 랜덤편지 확인
+"Reply" = "답장";
+

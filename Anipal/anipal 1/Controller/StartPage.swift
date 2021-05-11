@@ -15,7 +15,7 @@ class StartPage: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     
     override func viewDidLoad() {
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 174, green: 192, blue: 245, alpha: 1)
+//       UINavigationBar.appearance().barTintColor = UIColor(red: 174, green: 192, blue: 245, alpha: 1)
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.restorePreviousSignIn() // 구글 로그인여부 확인
@@ -30,7 +30,12 @@ class StartPage: UIViewController {
         
         // 페이스북 로그인여부 확인
         if let token = AccessToken.current, !token.isExpired {
-            print(token)
+            print("facebook auto login")
+            Profile.loadCurrentProfile { (profile, error) in
+                print(profile?.email)
+                print(profile?.name)
+                print(profile?.userID)
+            }
             moveMainScreen()
         }
     }
@@ -41,14 +46,11 @@ class StartPage: UIViewController {
     
 // MARK: - 회원가입버튼
     @IBAction func clickSignupBtn(_ sender: UIButton) {
-        
-        guard let signupVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC1") else {
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        guard let signupVC = storyboard.instantiateViewController(identifier: "SignUpVC1") as? SignUpViewController else {
             return
         }
 
-        // signupVC.modalTransitionStyle = .coverVertical
-        // signupVC.modalPresentationStyle = .fullScreen
-        // self.present(signupVC, animated: true)
         self.navigationController?.pushViewController(signupVC, animated: true)
     }
     
@@ -78,6 +80,9 @@ extension StartPage: GIDSignInDelegate {
             }
             return
         }
+        
+        //
+        
         guard let email = user.profile.email, email != "" else {
             return
         }

@@ -4,18 +4,14 @@
 target 'anipal 1' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'GoogleSignIn'
-  pod 'SwiftLint'
-  pod 'FBSDKLoginKit'
-  # Pods for anipal 1
 
-  # iOS Simulator deployment target is 9.0
-  post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
-      end
-    end
-  end
+  pod 'GoogleSignIn'
+  pod 'FBSDKLoginKit'
+  pod 'SwiftLint'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'DropDown'
+
+  # Pods for anipal 1
 
 end

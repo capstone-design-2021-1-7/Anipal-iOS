@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteView" customModule="anipal_1" customModuleProvider="target">
             <connections>
                 <outlet property="favCell" destination="q88-kq-BAW" id="5Db-Zw-0e4"/>
+                <outlet property="favCollectionVeiw" destination="q88-kq-BAW" id="vjI-hA-byZ"/>
                 <outlet property="favView" destination="iN0-l3-epB" id="Y9T-3o-cCV"/>
             </connections>
         </placeholder>

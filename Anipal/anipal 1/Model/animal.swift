@@ -7,13 +7,42 @@
 
 import UIKit
 
+struct AnimalPost {
+    let animal: String
+    let animalURLs: [String: String]
+    let isUsed: Bool
+    let delayTime: String
+    let comingAnimal: [String: String]
+    let animalImg: UIImage
+    let ownAnimalId: String
+    
+    init(animal: String, animalURLs: [String: String], isUsed: Bool, delayTime: String, comingAnimal: [String: String], animalImg: UIImage, ownAnimalId: String) {
+        self.animal = animal
+        self.animalURLs = animalURLs
+        self.isUsed = isUsed
+        self.delayTime = delayTime
+        self.comingAnimal = comingAnimal
+        self.animalImg = animalImg
+        self.ownAnimalId = ownAnimalId
+    }
+}
+
 struct Animal {
     let name: String
     let img: UIImage
+    let id: String
     
+    init(nameInit: String, image: UIImage, animalId: String) {
+        name = nameInit
+        img = image
+        id = animalId
+    }
+    
+    // 테스트이미지용 임시 생성자. 모든코드 서버이미지로 전환작업 완료후 아래쪽 테스트데이터 삭제시 삭제예정
     init(nameInit: String, image: UIImage) {
         name = nameInit
         img = image
+        id = ""
     }
 }
 
@@ -27,7 +56,7 @@ let animals: [Animal] = [
     Animal(nameInit: "lion", image: #imageLiteral(resourceName: "lion")),
     Animal(nameInit: "chicken", image: #imageLiteral(resourceName: "chicken")),
     Animal(nameInit: "fox", image: #imageLiteral(resourceName: "fox")),
-    Animal(nameInit: "penguin", image: #imageLiteral(resourceName: "penguin")),
+    Animal(nameInit: "penguin", image: #imageLiteral(resourceName: "ourPengiun")),
     Animal(nameInit: "black", image: #imageLiteral(resourceName: "black")),
     Animal(nameInit: "monkey", image: #imageLiteral(resourceName: "monkey")),
     Animal(nameInit: "zebra", image: #imageLiteral(resourceName: "zebra")),
