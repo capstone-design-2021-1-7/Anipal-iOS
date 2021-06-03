@@ -10,25 +10,144 @@ import SwiftyJSON
 
 class MainPage: UIViewController {
     
-    @IBOutlet var writingButton: UIButton!
+    enum CardState {
+        case expanded
+        case collapsed
+    }
     
+    var comingAnimals: ComingAnimals!
+    var visualEffectView: UIVisualEffectView!
+    
+    let cardHandleAreaHeight: CGFloat = 120
+    var cardHeight: CGFloat = 234
+    
+    var cardVisible = false
+    var nextState: CardState {
+        return cardVisible ? .collapsed : .expanded
+    }
+    
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressWhenInterrupted: CGFloat = 0
+    
+    // 서버 데이터
     var receiveAnimal: [RandomAnimal] = []
     var imageUrls: [[String]] = []
     var images: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupCard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("메인화면 view appear 호출")
         navigationController?.isNavigationBarHidden = true
         refreshData()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK: - 배송 중 동물
+    func setupCard() {
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        visualEffectView.layer.zPosition = 999
+        self.view.addSubview(visualEffectView)
+        
+        comingAnimals = ComingAnimals(nibName: "ComingAnimals", bundle: nil)
+        self.addChild(comingAnimals)
+        comingAnimals.view.layer.zPosition = 999
+        self.view.addSubview(comingAnimals.view)
+        
+        comingAnimals.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
+        comingAnimals.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainPage.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(MainPage.handleCardPan(recognizer:)))
+        
+        comingAnimals.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        comingAnimals.handleArea.addGestureRecognizer(panGestureRecognizer)
+        comingAnimals.handleArea.layer.cornerRadius = 12
+    }
+    
+    @objc
+    func handleCardTap(recognizer: UITapGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            comingAnimals.comingTableView.loadComingAnimals()
+            
+            let row = comingAnimals.comingTableView.comingAnimals.count
+            cardHeight = cardHandleAreaHeight + CGFloat((90 * row))
+            comingAnimals.view.frame = CGRect(x: comingAnimals.view.frame.origin.x, y: comingAnimals.view.frame.origin.y, width: comingAnimals.view.frame.size.width, height: cardHeight)
+            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        default:
+            break
+        }
+    }
+    
+    @objc
+    func handleCardPan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            startInteractiveTransition(state: nextState, duration: 0.9)
+        case .changed:
+            let translation = recognizer.translation(in: self.comingAnimals.handleArea)
+            var fractionComplete = translation.y / cardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            continueInteractiveTransition()
+        default:
+            break
+        }
+    }
+    
+    func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
+        let handle = comingAnimals.handleImg
+        if runningAnimations.isEmpty {
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+                switch state {
+                case .expanded:
+                    handle?.transform = CGAffineTransform(rotationAngle: .pi)
+                    self.comingAnimals.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                case .collapsed:
+                    handle?.transform = CGAffineTransform(rotationAngle: .pi*2)
+                    self.comingAnimals.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight
+                }
+            }
+            
+            frameAnimator.addCompletion { _ in
+                self.cardVisible = !self.cardVisible
+                self.runningAnimations.removeAll()
+            }
+            
+            frameAnimator.startAnimation()
+            runningAnimations.append(frameAnimator)
+        }
+    }
+    
+    func startInteractiveTransition(state: CardState, duration: TimeInterval) {
+        if runningAnimations.isEmpty {
+            animateTransitionIfNeeded(state: state, duration: duration)
+        }
+        for animator in runningAnimations {
+            animator.pauseAnimation()
+            animationProgressWhenInterrupted = animator.fractionComplete
+        }
+    }
+    
+    func updateInteractiveTransition(fractionCompleted: CGFloat) {
+        for animator in runningAnimations {
+            animator.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
+        }
+    }
+    
+    func continueInteractiveTransition() {
+        for animator in runningAnimations {
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        }
     }
     
     // MARK: - 데이터 배열 초기화

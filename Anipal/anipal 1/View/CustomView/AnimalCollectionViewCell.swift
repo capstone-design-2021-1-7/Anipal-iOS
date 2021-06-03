@@ -11,6 +11,7 @@ class AnimalCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var img: UIImageView!
     @IBOutlet var name: UILabel!
+    @IBOutlet weak var aniTime: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

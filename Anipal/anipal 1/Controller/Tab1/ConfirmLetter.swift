@@ -16,33 +16,77 @@ protocol modalDelegate: class {
 class ConfirmLetter: UIViewController {
     var delegate: modalDelegate?
     var randomId: String! = ""
+    var senderId: String = ""
     
+    @IBOutlet var languageLbl: UILabel!
+    @IBOutlet var favLbl: UILabel!
     @IBOutlet var senderLbl: UILabel!
-    @IBOutlet var countryLbl: UILabel!
     @IBOutlet var dateLbl: UILabel!
     @IBOutlet var textView: UITextView!
     @IBOutlet var innerView: UIView!
     @IBOutlet var replyButton: UIButton!
     @IBOutlet var deleteButton: UIButton!
-
+    @IBOutlet var banButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         innerView.layer.cornerRadius = 20
         if let randomId = randomId {
             reloadData(id: randomId)
         }
-        replyButton.setTitle("reply".localized, for: .normal)
-        deleteButton.setTitle("delete".localized, for: .normal)
+        replyButton.setTitle("Reply".localized, for: .normal)
+        deleteButton.setTitle("Delete".localized, for: .normal)
+        banButton.setTitle("Block".localized, for: .normal)
+        
+        banButton.layer.borderWidth = 1
+        banButton.layer.borderColor = UIColor.red.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
 
     }
     
-//    func replyButtonDelegate(data: Bool) {
-//        <#code#>
-//    }
-    
+    // MARK: - 차단버튼 클릭시
+    @IBAction func clickBan(_ sender: UIButton) {
+        let alertcontroller = UIAlertController(title: "Block".localized, message: "유저를 차단하시겠습니까?", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "Ok".localized, style: .default) { [self] (action) in
+            if let session = HTTPCookieStorage.shared.cookies?.filter({$0.name == "Authorization"}).first {
+                var putURL = "/users/ban/\(senderId)"
+                ad?.blockUsers.append(senderId)
+//                for idx in 0..<letters.count {
+//                    if letters[idx].senderID != ad?.id {
+//                        ad?.blockUsers.append(letters[idx].senderID)
+//                        putURL += letters[idx].senderID
+//                        break
+//                    }
+//                }
+                
+                put(url: putURL, token: session.value, completionHandler: { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("error=\(String(describing: error))")
+                        return
+                    }
+                    if let httpStatus = response as? HTTPURLResponse {
+                        if httpStatus.statusCode == 200 {
+                            print("block user: \(ad?.blockUsers)")
+                            DispatchQueue.main.async {
+                                print("delete err code: \(httpStatus.statusCode)")
+                                self.delegate?.refresh()
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } else {
+                            print("error: \(httpStatus.statusCode)")
+                        }
+                    }
+                })
+            }
+        }
+        let cancelBtn = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        alertcontroller.addAction(okBtn)
+        alertcontroller.addAction(cancelBtn)
+        present(alertcontroller, animated: true, completion: nil)
+        
+    }
     // MARK: - 닫기버튼 클릭시
     @IBAction func clickCancel(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true, completion: {
@@ -108,14 +152,37 @@ class ConfirmLetter: UIViewController {
                         var date = json["send_time"].stringValue
                         date = dateConvert(date: date)
                         let sender = json["sender"]["name"].stringValue
-                        let country = json["sender"]["country"].stringValue
+                        let favorite = json["sender"]["favorites"].arrayValue.map {$0.stringValue}
+                        let languages = json["sender"]["languages"].arrayObject as? [[String: Any]]
+                        let senderid = json["sender"]["user_id"].stringValue
+                        self.senderId = senderid
+                        var fav: [String] = []
+                        for favor in favorite {
+                            fav.append(favor.localized)
+                        }
                         
+                        var lang: [String] = []
+                        for row in languages ?? [] {
+                            if let name = row["name"] as? String, let level = row["level"] as? Int {
+                                var lev = ""
+                                if level == 1 {
+                                    lev = "Beginner"
+                                } else if level == 2 {
+                                    lev = "Intermediate"
+                                } else {
+                                    lev = "Advanced"
+                                }
+                                lang.append("\(name.localized):\(lev.localized)")
+                            }
+                        }
+
                         // 뷰생성
                         DispatchQueue.main.async {
                             textView.text = content
                             senderLbl.text = sender
                             dateLbl.text = date
-                            countryLbl.text = country
+                            favLbl.text = fav.joined(separator: " ")
+                            languageLbl.text = lang.joined(separator: ", ")
                         }
                 } else if httpStatus.statusCode == 400 {
                     print("error: \(httpStatus.statusCode)")
@@ -129,16 +196,19 @@ class ConfirmLetter: UIViewController {
     
     // MARK: - 날짜 형식 변환
     func dateConvert(date: String) -> String {
-        let stringFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let stringFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let formatter = DateFormatter()
-        formatter.dateFormat = stringFormat
+        formatter.dateFormat = stringFormatter
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         // formatter.locale = Locale(identifier: "ko") 추후 국가별 문구 설정시 사용하기위해 주석처리
-        guard let tempDate = formatter.date(from: date) else {
-            return ""
-        }
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        return formatter.string(from: tempDate)
+        if let tempDate = formatter.date(from: date) {
+            print("tempDate(UTC): \(tempDate)")
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
 
+            return formatter.string(from: tempDate)
+        }
+        
+        return ""
     }
-    
 }

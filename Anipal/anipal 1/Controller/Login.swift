@@ -17,6 +17,8 @@ class Login: UIViewController {
     @IBOutlet var appleBtn: UIButton!
     @IBOutlet var logoImage: UIImageView!
     
+    var images: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.delegate = self
@@ -41,7 +43,7 @@ class Login: UIViewController {
                 Profile.loadCurrentProfile(completion: {(profile, error) in
                     fbEmail = profile?.email
                 })
-                self.getData(url: "http://ec2-15-164-231-148.ap-northeast-2.compute.amazonaws.com/auth/facebook", token: AccessToken.current!.tokenString, email: fbEmail!, provider: "facebook") // 서버로 토큰 전송
+                self.getData(url: "https://anipal.co.kr/auth/facebook", token: AccessToken.current!.tokenString, email: fbEmail!, provider: "facebook") // 서버로 토큰 전송
             
             case .cancelled:
                 print("user cancel the login")
@@ -79,7 +81,7 @@ class Login: UIViewController {
             Profile.loadCurrentProfile { (profile, error) in
                 fbEmail = profile?.email
             }
-            getData(url: "http://ec2-15-164-231-148.ap-northeast-2.compute.amazonaws.com/auth/facebook", token: AccessToken.current!.tokenString, email: fbEmail!, provider: "facebook")
+            getData(url: "https://anipal.co.kr/auth/facebook", token: AccessToken.current!.tokenString, email: fbEmail!, provider: "facebook")
         }
     }
     // MARK: - 서버 통신
@@ -107,7 +109,7 @@ class Login: UIViewController {
                     // 쿠키 저장
                     let responseCookies: [HTTPCookie] = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
                     HTTPCookieStorage.shared.setCookies(responseCookies, for: response!.url!, mainDocumentURL: nil)
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [self] in
                         
                         // JSON 값 저장
                         if let data = data {
@@ -122,6 +124,11 @@ class Login: UIViewController {
                             if let languages = JSON(data)["languages"].arrayObject as? [[String: Any]] { ad?.languages = languages }
                             if let accessories = JSON(data)["accessories"].dictionaryObject as? [String: [[String: String]]] { ad?.accessories = accessories }
                             if let animals = JSON(data)["animals"].arrayObject as? [[String: Any]] { ad?.animals = animals }
+                            if let favAnimal = JSON(data)["favorite_animal"].dictionaryObject as? [String: String] {
+                                let compFav = loadAnimals(urls: favAnimal)
+                                ad?.thumbnail = compFav
+                            }
+                            if let blockUsers = JSON(data)["banned_users_id"].arrayObject as? [String] { ad?.blockUsers = blockUsers }
                         }
                         
                         // 메인화면 이동
@@ -161,6 +168,38 @@ class Login: UIViewController {
         }
         task.resume()
     }
+    
+    // MARK: - 이미지 합성
+    func loadAnimals(urls: [String: String]) -> UIImage {
+        let order = urls.sorted(by: <)
+        images = []
+        for (_, url) in order {
+            setImage(from: url)
+        }
+        return compositeImage(images: images)
+    }
+    
+    func compositeImage(images: [UIImage]) -> UIImage {
+        var compositeImage: UIImage!
+        if images.count > 0 {
+            let size: CGSize = CGSize(width: images[0].size.width, height: images[0].size.height)
+            UIGraphicsBeginImageContext(size)
+            for image in images {
+                let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                image.draw(in: rect)
+            }
+            compositeImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        }
+        return compositeImage
+    }
+    
+    func setImage(from url: String) {
+        guard let imageURL = URL(string: url) else { return }
+        guard let imageData = try? Data(contentsOf: imageURL) else { return }
+        let image = UIImage(data: imageData)
+        self.images.append(image!)
+    }
 }
 // MARK: - 구글 로그인 설정
 extension Login: GIDSignInDelegate {
@@ -178,7 +217,7 @@ extension Login: GIDSignInDelegate {
         print("success google login")
         print("access token : \(user.authentication.accessToken ?? "")")
 
-        getData(url: "http://ec2-15-164-231-148.ap-northeast-2.compute.amazonaws.com/auth/google", token: user.authentication.accessToken, email: user.profile.email, provider: "google") // 서버로 토큰 전송
+        getData(url: "https://anipal.co.kr/auth/google", token: user.authentication.accessToken, email: user.profile.email, provider: "google") // 서버로 토큰 전송
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print("Disconnect")

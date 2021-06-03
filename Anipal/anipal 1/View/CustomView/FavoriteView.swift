@@ -42,7 +42,6 @@ class FavoriteView: UIView, UICollectionViewDataSource {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        print("Init: ", userFav)
         initCollectionView()
     }
     
@@ -68,7 +67,6 @@ class FavoriteView: UIView, UICollectionViewDataSource {
                     }
                     // 화면 reload
                     DispatchQueue.main.async {
-                        print(serverFavorites)
                         self.favCollectionVeiw.reloadData()
                     }
                 } else if httpStatus.statusCode == 400 {
@@ -117,11 +115,9 @@ extension FavoriteView {
                 userFav.remove(at: idx)
             }
             sender.layer.backgroundColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-            print(userFav)
         } else {    // 선택 해제
             userFav.append(favData)
             sender.layer.backgroundColor = CGColor(red: 0.682, green: 0.753, blue: 0.961, alpha: 1)
-            print(userFav)
         }
 
     }

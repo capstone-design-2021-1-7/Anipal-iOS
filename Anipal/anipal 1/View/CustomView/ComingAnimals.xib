@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComingAnimals" customModule="anipal_1" customModuleProvider="target">
+            <connections>
+                <outlet property="comingTableView" destination="Xoa-GV-Aq7" id="sbW-y7-92a"/>
+                <outlet property="handleArea" destination="ZSn-K9-nqv" id="7dH-Ih-cXz"/>
+                <outlet property="handleImg" destination="hae-OV-oPV" id="E1X-ce-IV9"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aAs-sI-qHi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="856"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xoa-GV-Aq7" customClass="ComingAnimalTableView" customModule="anipal_1" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="45" width="375" height="811"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-K9-nqv">
+                    <rect key="frame" x="142" y="0.0" width="91" height="59"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hae-OV-oPV">
+                            <rect key="frame" x="12" y="9.5" width="67" height="21"/>
+                            <color key="tintColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="Pqe-ec-WFJ"/>
+                                <constraint firstAttribute="height" constant="34.5" id="kmU-UL-w9d"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hae-OV-oPV" firstAttribute="centerX" secondItem="ZSn-K9-nqv" secondAttribute="centerX" id="4Fb-58-MyI"/>
+                        <constraint firstAttribute="width" constant="91" id="Qhc-ww-yFg"/>
+                        <constraint firstItem="hae-OV-oPV" firstAttribute="centerY" secondItem="ZSn-K9-nqv" secondAttribute="centerY" constant="-9.25" id="axF-j8-zWU"/>
+                        <constraint firstAttribute="height" constant="59" id="lEy-fq-gcx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZSn-K9-nqv" secondAttribute="trailing" constant="142" id="8CT-Do-uHm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xoa-GV-Aq7" secondAttribute="trailing" id="R1I-HQ-k93"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="ZSn-K9-nqv" secondAttribute="top" constant="44" id="Rry-eF-UeU"/>
+                <constraint firstItem="ZSn-K9-nqv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Sl1-Bl-3B7"/>
+                <constraint firstItem="Xoa-GV-Aq7" firstAttribute="top" secondItem="ZSn-K9-nqv" secondAttribute="bottom" constant="-14" id="Tg5-Vq-ElM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZSn-K9-nqv" secondAttribute="trailing" constant="142" id="Vav-So-akg"/>
+                <constraint firstItem="ZSn-K9-nqv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="142" id="YXB-ED-XWO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Xoa-GV-Aq7" secondAttribute="bottom" id="fHF-7y-jJ5"/>
+                <constraint firstItem="Xoa-GV-Aq7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rtm-Sg-nAs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="38.405797101449281" y="218.30357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.compact.up" catalog="system" width="128" height="43"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

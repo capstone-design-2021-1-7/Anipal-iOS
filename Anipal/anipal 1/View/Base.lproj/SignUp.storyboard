@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -36,7 +36,7 @@
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="languageCell" id="fdA-ga-m4C" customClass="LanguageTableViewCell" customModule="anipal_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdA-ga-m4C" id="bY4-5d-xu0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -199,7 +199,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.94901960784313721" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="levelSelectCell" rowHeight="80" id="ako-I9-SrJ" customClass="LevelSelectTableViewCell" customModule="anipal_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ako-I9-SrJ" id="NPz-b9-tPn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -338,7 +338,7 @@
                             <constraint firstItem="9Pj-OV-fCq" firstAttribute="centerX" secondItem="fzB-Qz-yYW" secondAttribute="centerX" id="ePo-ro-4P6"/>
                             <constraint firstItem="cnO-ti-esQ" firstAttribute="centerX" secondItem="fzB-Qz-yYW" secondAttribute="centerX" id="jeq-du-HxL"/>
                             <constraint firstItem="9Pj-OV-fCq" firstAttribute="top" secondItem="s6B-Lp-Eaz" secondAttribute="bottom" constant="20" id="oIE-mi-QSP"/>
-                            <constraint firstItem="fV9-xN-EKr" firstAttribute="leading" secondItem="8DY-L7-SV4" secondAttribute="leading" constant="50" id="y9Z-1l-fyF"/>
+                            <constraint firstItem="fV9-xN-EKr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8DY-L7-SV4" secondAttribute="leading" constant="50" id="y9Z-1l-fyF"/>
                             <constraint firstItem="rFG-CX-gTF" firstAttribute="leading" secondItem="8DY-L7-SV4" secondAttribute="leading" id="zv6-UC-YvZ"/>
                         </constraints>
                     </view>
@@ -388,7 +388,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.94901960780000005" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="conceptSelectCell" rowHeight="80" id="nnB-KM-fxu" customClass="ConceptTableViewCell" customModule="anipal_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nnB-KM-fxu" id="J18-xk-RsJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>

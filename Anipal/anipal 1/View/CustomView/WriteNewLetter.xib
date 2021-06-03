@@ -16,26 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="132" height="216"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4D-M2-C77">
-                        <rect key="frame" x="0.0" y="98" width="132" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="writing" translatesAutoresizingMaskIntoConstraints="NO" id="Lnb-wa-jip">
+                        <rect key="frame" x="31" y="69" width="84" height="84"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="x4D-M2-C77" firstAttribute="leading" secondItem="OXO-Yt-tPw" secondAttribute="leading" id="7MP-xz-fFH"/>
-                    <constraint firstItem="x4D-M2-C77" firstAttribute="top" secondItem="OXO-Yt-tPw" secondAttribute="top" constant="98" id="AsN-9u-Jdc"/>
-                    <constraint firstAttribute="bottom" secondItem="x4D-M2-C77" secondAttribute="bottom" constant="97" id="L9m-fg-uF2"/>
-                    <constraint firstAttribute="trailing" secondItem="x4D-M2-C77" secondAttribute="trailing" id="vQG-kv-fRf"/>
+                    <constraint firstItem="Lnb-wa-jip" firstAttribute="top" secondItem="OXO-Yt-tPw" secondAttribute="top" constant="69" id="4PL-st-qy2"/>
+                    <constraint firstAttribute="bottom" secondItem="Lnb-wa-jip" secondAttribute="bottom" constant="63" id="Hf2-RR-Hft"/>
+                    <constraint firstItem="Lnb-wa-jip" firstAttribute="width" secondItem="OXO-Yt-tPw" secondAttribute="width" multiplier="0.757576" constant="-16.000032000000004" id="bEM-pg-jXJ"/>
+                    <constraint firstItem="Lnb-wa-jip" firstAttribute="leading" secondItem="OXO-Yt-tPw" secondAttribute="leading" constant="31" id="jz2-sq-EBd"/>
+                    <constraint firstAttribute="trailing" secondItem="Lnb-wa-jip" secondAttribute="trailing" constant="17" id="xBl-3x-x1W"/>
+                    <constraint firstItem="Lnb-wa-jip" firstAttribute="height" secondItem="OXO-Yt-tPw" secondAttribute="height" multiplier="0.462963" constant="-16.000008000000008" id="yen-Uv-0as"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="130" height="200"/>
             <connections>
-                <outlet property="writeLabel" destination="x4D-M2-C77" id="78w-P8-C9m"/>
+                <outlet property="newWriteView" destination="OXO-Yt-tPw" id="rZC-Mj-dYu"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="182.8125"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="writing" width="512" height="512"/>
+    </resources>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 struct Letter {
     let senderID: String
     let name: String
-    let country: String
+    var language: [String]
     var favorites: [String]
     let animal: [String]
     let receiverID: String
@@ -19,10 +19,10 @@ struct Letter {
     let sendDate: String
     let animalImg: UIImage
  
-    init(senderID: String, name: String, country: String, favorites: [String], animal: [String], receiverID: String, content: String, arrivalDate: String, sendDate: String, animalImg: UIImage) {
+    init(senderID: String, name: String, language: [String], favorites: [String], animal: [String], receiverID: String, content: String, arrivalDate: String, sendDate: String, animalImg: UIImage) {
         self.senderID = senderID
         self.name = name
-        self.country = country
+        self.language = language
         self.favorites = favorites
         self.animal = animal
         self.receiverID = receiverID

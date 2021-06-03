@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ComingAnimalCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ComingAnimalCell" rowHeight="90" id="KGk-i7-Jjw" customClass="ComingAnimalCell" customModule="anipal_1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xPS-gi-K7L" customClass="CustomSlider" customModule="anipal_1" customModuleProvider="target">
+                        <rect key="frame" x="10" y="36" width="372" height="24"/>
+                    </slider>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xPS-gi-K7L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="00W-cc-IKS"/>
+                    <constraint firstAttribute="trailing" secondItem="xPS-gi-K7L" secondAttribute="trailing" constant="20" symbolic="YES" id="0dm-dY-GVA"/>
+                    <constraint firstItem="xPS-gi-K7L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="BFv-21-k47"/>
+                    <constraint firstAttribute="bottom" secondItem="xPS-gi-K7L" secondAttribute="bottom" constant="31" id="qG1-0C-oUr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="animalSlider" destination="xPS-gi-K7L" id="Ldd-6l-1uk"/>
+            </connections>
+            <point key="canvasLocation" x="44.927536231884062" y="1.3392857142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

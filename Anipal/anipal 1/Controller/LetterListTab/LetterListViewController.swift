@@ -16,20 +16,35 @@ class LetterListViewController: UICollectionViewController {
     var mailboxes: [MailBox] = []
     let dateFormatter = DateFormatter()
     var images: [UIImage] = []
+    var isBlocked: [Bool] = []
     
     var unOpenedMail = UIImage(named: "letterBox1.png")
     var openedMail = UIImage(named: "letterBox2.png")
-    
+    var refreshControl: UIRefreshControl?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Penpal".localized
         
         initCollectionView()
         setupFlowLayout()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh".localized)
+        refreshControl?.addTarget(self, action: #selector(pullRefresh(_:)), for: .valueChanged)
+        letterListCollectionView.refreshControl = refreshControl
+    }
+    
+    @objc func pullRefresh(_ sender: Any) {
+        isBlocked.removeAll()
+        getMailBoxes()
+        isBlocked.removeAll()
+        refreshControl?.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        isBlocked.removeAll()
         getMailBoxes()
+        isBlocked.removeAll()
     }
     
     private func getMailBoxes() {
@@ -45,9 +60,7 @@ class LetterListViewController: UICollectionViewController {
                     if httpStatus.statusCode == 200 {
                         mailboxes = []
                         for idx in 0..<JSON(data).count {
-                            print("제이슨 카운터수!!!\(JSON(data).count)")
                             let json = JSON(data)[idx]
-                            print("data: \(json)")
                             let partner: [String: Any] = [
                                 "user_id": json["partner"]["user_id"].stringValue,
                                 "name": json["partner"]["name"].stringValue,
@@ -61,15 +74,11 @@ class LetterListViewController: UICollectionViewController {
                                 "shoes_url": json["thumbnail_animal"]["shoes_url"].stringValue,
                                 "gloves_url": json["thumbnail_animal"]["gloves_url"].stringValue]
                             
-                            
                             var date = json["arrive_date"].stringValue
                             date = dateConvert(date: date)
                             
                             let mailBox = MailBox(mailBoxID: json["_id"].stringValue, isOpened: json["is_opened"].boolValue, partner: partner, thumbnail: thumbnail, arrivalDate: date, letterCount: json["letters_count"].intValue)
                             
-//                            if thumbnail["animal_url"] != "" {
-//                                mailBox = MailBox(mailBoxID: json["_id"].stringValue, isOpened: json["is_opened"].boolValue, partner: partner, thumbnail: loadAnimals(urls: thumbnail), arrivalDate: date, letterCount: json["letters_count"].intValue)
-//                            }
                             mailboxes.append(mailBox)
                         }
                         
@@ -81,7 +90,6 @@ class LetterListViewController: UICollectionViewController {
                                 self.collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
                             })
                         }
-
                     } else if httpStatus.statusCode == 400 {
                         print("error: \(httpStatus.statusCode)")
                     } else {
@@ -158,16 +166,20 @@ class LetterListViewController: UICollectionViewController {
     
     // MARK: - 날짜 형식 변환
     func dateConvert(date: String) -> String {
-        let stringFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let stringFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let formatter = DateFormatter()
-        formatter.dateFormat = stringFormat
+        formatter.dateFormat = stringFormatter
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         // formatter.locale = Locale(identifier: "ko") 추후 국가별 문구 설정시 사용하기위해 주석처리
-        guard let tempDate = formatter.date(from: date) else {
-            return ""
-        }
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: tempDate)
+        if let tempDate = formatter.date(from: date) {
+            print("tempDate(UTC): \(tempDate)")
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "yyyy-MM-dd"
 
+            return formatter.string(from: tempDate)
+        }
+        
+        return ""
     }
 }
 
@@ -183,29 +195,31 @@ extension LetterListViewController {
             }
             
             cell.arrivalAnimal.image = nil
+            cell.mailbox.image = nil
             
             if mailboxes[indexPath.row - 1].thumbnail["animal_url"] != "" {
-                print("thumbnail: \(String(describing: mailboxes[indexPath.row - 1].thumbnail["animal_url"]))")
                 cell.arrivalAnimal.image = loadAnimals(urls: (mailboxes[indexPath.row - 1].thumbnail))
-            }
-            
-            
-            
-            if mailboxes[indexPath.row - 1].isOpened {
-                cell.mailbox.image = openedMail
-            } else {
                 cell.mailbox.image = unOpenedMail
+            } else {
+                cell.mailbox.image = openedMail
             }
+            
             cell.senderName.text = mailboxes[indexPath.row - 1].partner["name"] as? String
             cell.senderName.sizeToFit()
-            cell.arrivalDate.text = mailboxes[indexPath.row - 1].arrivalDate
+            if mailboxes[indexPath.row - 1].partner["name"] as! String != "" {
+                cell.arrivalDate.text = mailboxes[indexPath.row - 1].arrivalDate
+                isBlocked.append(false)
+            } else {
+                cell.arrivalDate.text = ""
+                isBlocked.append(true)
+            }
             cell.arrivalDate.sizeToFit()
             
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteNewLetter", for: indexPath) as? WriteNewLetter else { fatalError("Can't dequeue WriteNewLetter")}
-            cell.writeLabel.text = "+ New".localized
-            cell.writeLabel.sizeToFit()
+            cell.newWriteView.layer.cornerRadius = 10
+            cell.newWriteView.alpha = 0.8
             
             return cell
         }
@@ -227,7 +241,7 @@ extension LetterListViewController {
             }
 
             letterDetailVC.mailBoxID = mailboxes[indexPath.row - 1].mailBoxID
-
+            letterDetailVC.isBlocked = isBlocked[indexPath.row - 1]
             self.navigationController?.pushViewController(letterDetailVC, animated: true)
         }
     }

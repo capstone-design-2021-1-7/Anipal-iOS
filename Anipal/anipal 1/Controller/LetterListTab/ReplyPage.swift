@@ -38,6 +38,7 @@ class ReplyPage: UIViewController, sendBackDelegate {
         animalBtn.layer.cornerRadius = animalBtn.frame.height/2
         animalBtn.layer.borderWidth = 0.3
         animalBtn.layer.borderColor = UIColor.lightGray.cgColor
+//        animalBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         
         // 저장&전송 버튼
 //        saveBtn.setTitle("Save".localized, for: .normal)
@@ -100,8 +101,9 @@ class ReplyPage: UIViewController, sendBackDelegate {
                             ]
                             let animal = AnimalPost(animal: json["animal"]["localized"].stringValue, animalURLs: animalURLs, isUsed: json["is_used"].boolValue, delayTime: json["delay_time"].stringValue, comingAnimal: comingAnimal, animalImg: animalImg, ownAnimalId: json["_id"].stringValue)
                             animals.append(animal)
-                            serverAnimals.append(Animal(nameInit: json["animal"]["localized"].stringValue, image: animalImg))
+                            serverAnimals.append(Animal(nameInit: json["animal"]["localized"].stringValue, image: animalImg, animalId: json["_id"].stringValue, aniTime: json["delay_time"].stringValue))
                         }
+                        
                     } else if httpStatus.statusCode == 400 {
                         print("error: \(httpStatus.statusCode)")
                     } else {
@@ -151,6 +153,7 @@ class ReplyPage: UIViewController, sendBackDelegate {
         }
         nextVC.delegate = self
         nextVC.serverAnimals = self.serverAnimals
+        nextVC.animals = self.animals
         self.present(nextVC, animated: true, completion: nil)
     }
     
@@ -169,11 +172,40 @@ class ReplyPage: UIViewController, sendBackDelegate {
                     print("error=\(String(describing: error))")
                     return
                 }
+                // 미션 성공시
+                var json = JSON(data)
+                if json["mission"].dictionary != nil {
+                    json = json["mission"]
+                    var detail: AccessoryDetail?
+                    if let url = URL(string: json["img_url"].stringValue) {
+                        if let imgData = try? Data(contentsOf: url) {
+                            if let image = UIImage(data: imgData) {
+                                detail = AccessoryDetail(name: json["name"].stringValue, price: json["price"].intValue, imgUrl: json["img_url"].stringValue, img: image, missionContent: json["mission"].stringValue, category: json["category"].stringValue)
+                            }
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Tab2", bundle: nil)
+                        guard let missionVC = storyboard.instantiateViewController(identifier: "mission") as? MissionView else {return}
+                        missionVC.accessoryInfo = detail
+                        missionVC.okBtnTitle = "Get"
+                        missionVC.modalPresentationStyle = .overCurrentContext
+//                        self.delegate?.reloadDelegate()
+                        guard let pvc = self.presentingViewController else {return}
+                        self.presentingViewController?.dismiss(animated: true, completion: {
+                            pvc.present(missionVC, animated: true, completion: nil)
+                        })
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.presentingViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
                 print(String(data: data, encoding: .utf8)!)
             })
         }
         delegate?.reloadDelegate()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

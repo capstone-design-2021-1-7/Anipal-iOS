@@ -12,8 +12,8 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
     @IBOutlet weak var scrollViewContent: UIScrollView!
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var senderName: UILabel!
-    @IBOutlet weak var senderCountry: UILabel!
     @IBOutlet weak var senderFav: UILabel!
+    @IBOutlet weak var senderLang: UILabel!
     @IBOutlet weak var senderAnimal: UIImageView!
     @IBOutlet weak var letterCtrl: UIPageControl!
     @IBOutlet weak var replyBtn: UIButton!
@@ -21,6 +21,9 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
     var letters: [Letter] = []
     var mailBoxID: String?
     var images: [UIImage] = []
+    var languageList: [String] = []
+    
+    var isBlocked: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,7 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
         replyBtn.layer.shadowOpacity = 1.0
         replyBtn.layer.shadowRadius = 3
         replyBtn.layer.masksToBounds = false
+        replyBtn.isHidden = true
         
         // 편지 로딩
         getLetters()
@@ -52,7 +56,7 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
         guard let replyVC = self.storyboard?.instantiateViewController(identifier: "ReplyPage") as? ReplyPage else { return }
         
         replyVC.modalTransitionStyle = .coverVertical
-        replyVC.modalPresentationStyle = .pageSheet
+        replyVC.modalPresentationStyle = .fullScreen
         
         replyVC.delegate = self
         replyVC.receiverID = letters[letterCtrl.currentPage].senderID
@@ -99,8 +103,11 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
     func senderInfo() {
         senderName.text = letters[letterCtrl.currentPage].name
         senderName.sizeToFit()
-        senderCountry.text = letters[letterCtrl.currentPage].country
-        senderCountry.sizeToFit()
+        for (idx, lang) in letters[letterCtrl.currentPage].language.enumerated() {
+            letters[letterCtrl.currentPage].language[idx] = lang.localized
+        }
+        senderLang.text = letters[letterCtrl.currentPage].language.joined(separator: ", ")
+        senderLang.sizeToFit()
         for (idx, fav) in letters[letterCtrl.currentPage].favorites.enumerated() {
             letters[letterCtrl.currentPage].favorites[idx] = fav.localized
         }
@@ -109,6 +116,7 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
         senderAnimal.image = letters[letterCtrl.currentPage].animalImg
         senderAnimal.contentMode = .scaleAspectFit
         
+        // 대표동물 이미지
         senderAnimal.backgroundColor = .white
         senderAnimal.layer.cornerRadius = senderAnimal.frame.height/2
         senderAnimal.layer.borderWidth = 0.3
@@ -119,6 +127,11 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
             replyBtn.isHidden = true
         } else {
             replyBtn.isHidden = false
+        }
+        
+        // 차단됐을 시 답장 버튼 숨기기
+        if isBlocked {
+            replyBtn.isHidden = true
         }
     }
     
@@ -136,16 +149,31 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
                     if httpStatus.statusCode == 200 {
                         letters = []
                         for idx in 0..<JSON(data).count {
+                            languageList = []
                             let json = JSON(data)[idx]
                             let senderID = json["sender"]["user_id"].stringValue
                             
                             let favorites = json["sender"]["favorites"].arrayValue.map { $0.stringValue }
                             let animal = [json["post_animal"]["animal_url"].stringValue, json["post_animal"]["head_url"].stringValue, json["post_animal"]["top_url"].stringValue, json["post_animal"]["pants_url"].stringValue, json["post_animal"]["gloves_url"].stringValue, json["post_animal"]["shoes_url"].stringValue]
                             let animalImg = loadAnimals(urls: animal)
+                            let languages = json["sender"]["languages"].arrayObject as? [[String: Any]]
+                            for row in languages ?? [] {
+                                if let name = row["name"] as? String, let level = row["level"] as? Int {
+                                    var lev = ""
+                                    if level == 1 {
+                                        lev = "Beginner"
+                                    } else if level == 2 {
+                                        lev = "Intermediate"
+                                    } else {
+                                        lev = "Advanced"
+                                    }
+                                    languageList.append("\(name.localized):\(lev.localized)")
+                                }
+                            }
                             let letter = Letter(
                                 senderID: senderID,
                                 name: json["sender"]["name"].stringValue,
-                                country: json["sender"]["country"].stringValue,
+                                language: languageList,
                                 favorites: favorites, animal: animal, receiverID: json["_id"].stringValue,
                                 content: json["content"].stringValue,
                                 arrivalDate: json["arrive_time"].stringValue,
@@ -171,16 +199,91 @@ class LetterDetailViewController: UIViewController, UIScrollViewDelegate, reload
     // 편지 넘기기
     @IBAction func letterSlide(_ sender: UIPageControl) {
         scrollViewContent.contentOffset.x = CGFloat((Int(scrollViewContent.contentSize.width) / letters.count) * letterCtrl.currentPage)
+        senderLang.text = letters[letterCtrl.currentPage].language.joined(separator: ", ")
         senderFav.text = letters[letterCtrl.currentPage].favorites.joined(separator: " ")
     }
     
     @IBAction func letterMenu(_ sender: Any) {
         let alertcontroller = UIAlertController(title: "Menu".localized, message: nil, preferredStyle: .actionSheet)
-        let deleteBtn = UIAlertAction(title: "Delete".localized, style: .default)
-        let blockBtn = UIAlertAction(title: "Block".localized, style: .default)
+        
+        // 편지 삭제
+        let deleteBtn = UIAlertAction(title: "Delete".localized, style: .default) { [self] (action) in
+            delMailBox()
+        }
+        
+        // 유저 차단
+        let blockBtn = UIAlertAction(title: "Block".localized, style: .default) { [self] (action) in
+            blockNotify()
+        }
         let cancelBtn = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         alertcontroller.addAction(deleteBtn)
         alertcontroller.addAction(blockBtn)
+        alertcontroller.addAction(cancelBtn)
+        present(alertcontroller, animated: true, completion: nil)
+    }
+    
+    // MARK: - 편지함 삭제
+    func delMailBox() {
+        let alertcontroller = UIAlertController(title: "Delete".localized, message: "편지함을 삭제하시겠습니까?", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "Ok".localized, style: .default) { [self] (action) in
+            if let session = HTTPCookieStorage.shared.cookies?.filter({ $0.name == "Authorization"}).first {
+                let getURL = "/mailboxes/leave/" + mailBoxID!
+                get(url: getURL, token: session.value, completionHandler: { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("error=\(String(describing: error))")
+                        return
+                    }
+                    if let httpStatus = response as? HTTPURLResponse {
+                        if httpStatus.statusCode == 200 {
+                            print("delete: \(JSON(data))")
+                        } else {
+                            print("error: \(httpStatus.statusCode)")
+                        }
+                    }
+                })
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        let cancelBtn = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        alertcontroller.addAction(okBtn)
+        alertcontroller.addAction(cancelBtn)
+        present(alertcontroller, animated: true, completion: nil)
+    }
+    
+    // MARK: - 유저 차단
+    func blockNotify() {
+        let alertcontroller = UIAlertController(title: "Block".localized, message: "유저를 차단하시겠습니까?", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "Ok".localized, style: .default) { [self] (action) in
+            if let session = HTTPCookieStorage.shared.cookies?.filter({$0.name == "Authorization"}).first {
+                var putURL = "/users/ban/"
+                for idx in 0..<letters.count {
+                    if letters[idx].senderID != ad?.id {
+                        ad?.blockUsers.append(letters[idx].senderID)
+                        putURL += letters[idx].senderID
+                        break
+                    }
+                }
+                
+                put(url: putURL, token: session.value, completionHandler: { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("error=\(String(describing: error))")
+                        return
+                    }
+                    if let httpStatus = response as? HTTPURLResponse {
+                        if httpStatus.statusCode == 200 {
+                            print("block user: \(ad?.blockUsers)")
+                        } else {
+                            print("error: \(httpStatus.statusCode)")
+                        }
+                    }
+                })
+            }
+            delMailBox()
+        }
+        let cancelBtn = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        alertcontroller.addAction(okBtn)
         alertcontroller.addAction(cancelBtn)
         present(alertcontroller, animated: true, completion: nil)
     }

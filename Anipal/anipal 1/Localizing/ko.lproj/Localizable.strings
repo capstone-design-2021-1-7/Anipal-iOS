@@ -38,6 +38,7 @@
 
 "Internal server error" = "내부 서버 오류";
 
+
 // 캐릭터 이름
 "penguin" = "펭귄";
 "cat" = "고양이";
@@ -121,6 +122,8 @@
 
 "Favorite" = "관심사";
 
+"Block List" = "차단 목록";
+
 "Logout" = "로그아웃";
 
 // 관심사
@@ -157,11 +160,11 @@
 // 언어레벨
 "Choose your language level" = "언어 수준을 선택하세요.";
 
-"Beginner" = "초급자";
+"Beginner" = "초급";
 
-"Intermediate" = "중급자";
+"Intermediate" = "중급";
 
-"Advanced" = "고급자";
+"Advanced" = "고급";
 
 "Cancel" = "취소";
 
@@ -169,4 +172,95 @@
 
 // 랜덤편지 확인
 "Reply" = "답장";
+
+// 미션
+"Acquisition conditions" = "*획득조건*";
+"receiveLetter5" = "5통의 편지받기";
+"receiveLetter10" = "10통의 편지받기";
+"receiveLetter20" = "20통의 편지받기";
+"continuousLogin30" = "어플접속 연속 30일";
+"continuousLogin60" = "어플접속 연속 60일";
+"continuousLogin90" = "어플접속 연속 90일";
+"continuousLogin120" = "어플접속 연속 120일";
+"totalCountry5" = "5개국 사람들과 편지 주고받기";
+"totalCountry8" = "5개국 사람들과 편지 주고받기";
+"totalCountry10" = "10개국 사람들과 편지 주고받기";
+"totalCountry15" = "15개국 사람들과 편지 주고받기";
+"postLetterByCat" = "고양이로 30시간 편지 보내기";
+"postLetterByRabbit" = "토끼로 30시간 편지 보내기";
+"postLetterByPenguin" = "펭귄으로 30시간 편지 보내기";
+"postLetterByDog" = "강아지로 30시간 편지 보내기";
+"postLetterByTurtle" = "거북이로 30시간 편지 보내기";
+"onePerson10" = "한 사람과 편지 10번이상 주고받기";
+"collectAnimal7" = "동물 5마리 수집하기";
+"sendReply10" = "답장 편지 10번 전송하기";
+"sendReply100" = "답장 편지 100번 전송하기";
+"sendReply200" = "답장 편지 200번 전송하기";
+"collectAccessory10" = "액세서리 10개 수집하기";
+"collectAccessory20" = "액세서리 20개 수집하기";
+"postFirstRandomLetter" = "첫 랜덤편지 보내기";
+"changeFavoriteAnimal" = "첫 대표동물 수정하기";
+
+"Get" = "획득";
+
+// 액세서리 이름
+// 머리
+"sunglassees" = "썬글라스";
+"glasses" = "동글안경";
+"lampshade" = "전통삿갓";
+"ribbon" = "분홍리본";
+
+// 상의
+"anipal" = "애니팔 로고티";
+"blue" = "파란상의";
+"koreangown" = "전통한복";
+"scouttop" = "스카웃";
+"star" = "별표티";
+"blackstripe" = "검정 줄무늬상의";
+"stripe" = "줄무늬옷";
+
+// 하의
+"denim" = "청바지";
+"gray" = "회색바지";
+"koreangown" = "전통한복";
+"scoutpants" = "초록바지";
+"star" = "스타 로고티";
+"blackstripe" = "검정 줄무늬상의";
+"stripe" = "줄무늬옷";
+"suspenders" = "검정색 멜빵바지";
+"greensuspenders" = "연두색 멜빵바지";
+"koreanpants" = "전통바지";
+
+// 신발
+"black" = "검정신발";
+"green" = "초록신발";
+"pink" = "분홍신발";
+"rainboots" = "장화";
+
+// 손
+"pencil" = "연필";
+"phone" = "휴대폰";
+"letter" = "편지봉투";
+"coke" = "콜라";
+
+
+
+
+
+
+
+
+
+
+
+
+// 동물 스토리
+"CATSTORY" = "귀여운 외모와는 달리 차가운 성격의 소유자에요\n서울에서 자란 차도고..(차가운 도시고양이?!)\n평소 재빠른 몸놀림으로 사람들을 피해 숨어다니지만 초코파이 하나만 있으면 친구가 될 수 있어요\n세상에서 제일 좋아하는 음식이 초코파이랍니다!";
+"PENGUINSTORY" = "뉴질랜드에서 건너온 펭귄이에요\n어릴적부터 동네 친구들과 달리기 시합하는 것을 좋아했어요. 빠르진 않아도 뒤뚱뒤뚱 뛰는것을 좋아해요!\n 부끄러움이 많지만 친해지면 애교가 많은 귀염둥이!!\n콜라를 마시면 기분이 좋아져서 에너지가 넘친답니다!";
+"TURTLESTORY" = "호주에서 자란 천연기념물 희귀거북이에요\n존재 자체만으로도 귀해서 항상 사랑받으며 귀하게 자란 말그대로 귀족!! 꾸미기를 좋아하고 남들한테 인정받는것을 좋아해요. 취미는 안경수집하기! 소문에 의하면 썬글라스 매니아라고...";
+"DOGSTORY" = "길거리를 떠돌며 악기연주를 하던 강아지에요! 그의 고향은 음악대의 도시 브레멘?! 음악을좋아하고 음악을 사랑하는 그는 낭만파 강아지! 자신의 악기점을 차리는 꿈을 가지고 있어요. 밤에 들려오는 음악소리의 정체가 요녀석이라는 소문이.. ";
+"RABBITSTORY" = "깡총깡총 넓은 들판을 뛰어다니는 상큼발랄 토끼에요! 그녀의 고향은 넓고넓은 스웨덴의 들판이라고 하던데... 그래서 인지 자유로운 성격의 소유자에요. 취미는 이쁜 신발모으기!! 집에 모아놓은 신발만 1000켤레가 넘는다고 하던데...";
+
+// 새로고침
+"Pull to refresh" = "새로고침";
 

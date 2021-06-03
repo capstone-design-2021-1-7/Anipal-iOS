@@ -24,7 +24,7 @@ class FavoriteViewController: UIViewController {
     
     @IBAction func nextPageButton(_ sender: UIButton) {
         ad!.favorites = favTable.userFav
-        postData(url: "http://ec2-15-164-231-148.ap-northeast-2.compute.amazonaws.com/auth/register", token: ad!.token!)
+        postData(url: "https://anipal.co.kr/auth/register", token: ad!.token!)
     }
     
     @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
@@ -99,7 +99,7 @@ class FavoriteViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
 
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
                 }
             

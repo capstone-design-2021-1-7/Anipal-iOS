@@ -68,12 +68,12 @@
             </objects>
             <point key="canvasLocation" x="6777" y="328"/>
         </scene>
-        <!--Item 2-->
+        <!--Mailbox-->
         <scene sceneID="LVU-Ay-iWQ">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-RFZ-cb-kSJ" automaticallyAdjustsScrollViewInsets="NO" id="RFZ-cb-kSJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" selectedImage="folder" catalog="system" id="X2T-Sa-Wmg">
-                        <imageReference key="image" image="folder" catalog="system" symbolScale="default"/>
+                    <tabBarItem key="tabBarItem" title="Mailbox" id="X2T-Sa-Wmg">
+                        <imageReference key="image" image="tray.full" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vWC-zk-1fz">
@@ -138,7 +138,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-xq-HFk">
-                                <rect key="frame" x="134" y="144" width="115" height="15"/>
+                                <rect key="frame" x="134" y="144" width="252" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                             <constraint firstItem="Iq4-cB-8QU" firstAttribute="trailing" secondItem="aDa-x4-5vb" secondAttribute="trailing" constant="28" id="uXR-T4-jPM"/>
                             <constraint firstItem="aDa-x4-5vb" firstAttribute="top" secondItem="Iq4-cB-8QU" secondAttribute="top" constant="120" id="yFy-3u-bac"/>
                             <constraint firstItem="CWp-MZ-8rZ" firstAttribute="top" secondItem="Iq4-cB-8QU" secondAttribute="top" constant="23" id="yxK-Mc-uUt"/>
-                            <constraint firstItem="yO4-Uj-cGQ" firstAttribute="leading" secondItem="CYF-xq-HFk" secondAttribute="trailing" constant="-115" id="zY6-kZ-P1W"/>
+                            <constraint firstItem="yO4-Uj-cGQ" firstAttribute="leading" secondItem="CYF-xq-HFk" secondAttribute="trailing" constant="-252" id="zY6-kZ-P1W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="내게 온 편지" id="a4d-UL-0bZ">
@@ -190,8 +190,8 @@
                         <outlet property="replyBtn" destination="n98-DS-41R" id="jgI-Kd-sMT"/>
                         <outlet property="scrollViewContent" destination="aDa-x4-5vb" id="eRQ-tF-jEt"/>
                         <outlet property="senderAnimal" destination="CWp-MZ-8rZ" id="sSL-UE-fNf"/>
-                        <outlet property="senderCountry" destination="CYF-xq-HFk" id="Q26-4O-625"/>
                         <outlet property="senderFav" destination="VU3-yy-fvd" id="mXF-5P-KJW"/>
+                        <outlet property="senderLang" destination="CYF-xq-HFk" id="6Ba-Ve-xC1"/>
                         <outlet property="senderName" destination="yO4-Uj-cGQ" id="1vD-nt-k25"/>
                     </connections>
                 </viewController>
@@ -288,8 +288,8 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="folder" catalog="system" width="128" height="97"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

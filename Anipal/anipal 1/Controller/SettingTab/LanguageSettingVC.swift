@@ -11,9 +11,9 @@ import SwiftyJSON
 class LanguageSettingVC: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet weak var finishBtn: UIButton!
     @IBOutlet var languageTableView: UITableView!
     
-   // let languageList = ["English", "한국어", "日本語", "中文", "Italiano", "프랑스어", "포르투갈어"]
     var serverLanguage: [String] = []
     var myLanguageList: [String: Int]! = [:]
     
@@ -23,6 +23,7 @@ class LanguageSettingVC: UIViewController {
         languageTableView.dataSource = self
         titleLabel.textColor = UIColor(red: 0.392, green: 0.392, blue: 0.392, alpha: 1)
         titleLabel.text = "Choose your language level".localized
+        finishBtn.setTitle("Complete".localized, for: .normal)
         loadLanguage()
         
         // cell Xib 파일 등록
@@ -37,16 +38,37 @@ class LanguageSettingVC: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+//    override func viewWillDisappear(_ animated: Bool) {
+//    }
+    
+    @IBAction func cancelBtn(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func finishLang(_ sender: UIButton) {
+        // 화면데이터 -> 저장데이터 변환
         var templanguages: [[String: Any]]? = [[String: Any]]()
         for row in myLanguageList ?? [:] {
             let (lang, level) = row
-            print(lang, level)
             templanguages?.append(["name": lang, "level": level])
         }
-        
         ad?.languages = templanguages
-        print(ad!.languages!)
+        
+        // 데이터 전송
+        if let session = HTTPCookieStorage.shared.cookies?.filter({$0.name == "Authorization"}).first {
+            let body: NSMutableDictionary = NSMutableDictionary()
+            body.setValue(ad?.languages, forKey: "languages")
+            
+            let putURL = "/users/" + (ad?.id)!
+            
+            put(url: putURL, token: session.value, body: body, completionHandler: { data, response, error in
+                guard let data = data, error == nil else {
+                    print("error=\(String(describing: error))")
+                    return
+                }
+            })
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     // 서버 데이터 로드
@@ -77,8 +99,6 @@ class LanguageSettingVC: UIViewController {
     }
 }
 
-
-    
 extension LanguageSettingVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

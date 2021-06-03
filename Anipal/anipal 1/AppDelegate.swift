@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var name: String?
     var age: Int?
     var favAnimal: String? = ""
+    var thumbnail: UIImage?
     var email: String?
     var country: String? = "Korea"
     var birthday: String?
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var token: String?
     var accessories: [String: [[String: String]]]? 
     var animals: [[String: Any]]?
+    var blockUsers: [String] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

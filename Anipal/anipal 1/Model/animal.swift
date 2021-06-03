@@ -27,22 +27,55 @@ struct AnimalPost {
     }
 }
 
+struct MyAnimal {
+    var id: String
+    var time: String
+    var name: String
+    var animal: [String: String]
+    
+    init(id: String, time: String, name: String, animal: [String: String]) {
+        self.id = id
+        self.time = time
+        self.name = name
+        self.animal = animal
+    }
+}
+
 struct Animal {
     let name: String
     let img: UIImage
     let id: String
-    
-    init(nameInit: String, image: UIImage, animalId: String) {
+    var aniTime: String
+
+    init(nameInit: String, image: UIImage, animalId: String, aniTime: String = "") {
         name = nameInit
         img = image
         id = animalId
+        self.aniTime = aniTime
     }
-    
+
     // 테스트이미지용 임시 생성자. 모든코드 서버이미지로 전환작업 완료후 아래쪽 테스트데이터 삭제시 삭제예정
     init(nameInit: String, image: UIImage) {
         name = nameInit
         img = image
         id = ""
+        aniTime = ""
+    }
+}
+
+struct ComingAnimal {
+    let animalURL: String
+    let bar: String
+    let background: String
+    let arriveTime: String
+    let sendTime: String
+    
+    init(animalURL: String, bar: String, background: String, arriveTime: String, sendTime: String) {
+        self.animalURL = animalURL
+        self.bar = bar
+        self.background = background
+        self.arriveTime = arriveTime
+        self.sendTime = sendTime
     }
 }
 

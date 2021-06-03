@@ -17,7 +17,10 @@ class SelectAnimal: UIViewController {
     var delegate: sendBackDelegate?
     @IBOutlet var collectionView: UICollectionView!
     let animalSelectCellId = "AnimalSelectCell"
+    var animals: [AnimalPost] = []
     var serverAnimals: [Animal] = []
+    
+    var isThumbnail = false
     
     override func viewDidLoad() {
 
@@ -50,8 +53,20 @@ extension SelectAnimal: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         cell.img.image = serverAnimals[indexPath.row].img
         cell.name.text = serverAnimals[indexPath.row].name.localized
+        
+        if serverAnimals[indexPath.row].aniTime != "" {
+            cell.aniTime.text = serverAnimals[indexPath.row].aniTime
+        }
+        
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .white
+        
+        if isThumbnail == false {
+            if animals[indexPath.row].isUsed {
+                cell.isUserInteractionEnabled = false
+                cell.contentView.alpha = 0.5
+            }
+        }
         return cell
     }
     
