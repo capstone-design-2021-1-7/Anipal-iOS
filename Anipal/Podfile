@@ -7,7 +7,6 @@ target 'anipal 1' do
 
   pod 'GoogleSignIn'
   pod 'FBSDKLoginKit'
-  pod 'SwiftLint'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'DropDown'
