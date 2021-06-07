@@ -13,7 +13,7 @@
         <!--WritingPage-->
         <scene sceneID="2KM-FH-BNK">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="WritingPage" storyboardName="Tab1" referencedIdentifier="WritingPage" id="Yk1-cY-KEW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="WritingPage" storyboardName="RandomLetterTab" referencedIdentifier="WritingPage" id="Yk1-cY-KEW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xm-Ro-YoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7230" y="-154"/>

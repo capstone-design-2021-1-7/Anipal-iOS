@@ -216,7 +216,7 @@
         <!--UINavigationController-gec-h4-CnC-->
         <scene sceneID="FJC-5y-NW5">
             <objects>
-                <viewControllerPlaceholder storyboardName="Tab1" referencedIdentifier="UINavigationController-gec-h4-CnC" id="eFW-h7-KtQ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="RandomLetterTab" referencedIdentifier="UINavigationController-gec-h4-CnC" id="eFW-h7-KtQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="OIr-QG-x8N"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajQ-vN-dDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,7 +226,7 @@
         <!--UINavigationController-MlG-8a-KjN-->
         <scene sceneID="Nzc-ZU-Y99">
             <objects>
-                <viewControllerPlaceholder storyboardName="Tab2" referencedIdentifier="UINavigationController-MlG-8a-KjN" id="6Tl-qv-TYw" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="CustomizeTab" referencedIdentifier="UINavigationController-MlG-8a-KjN" id="6Tl-qv-TYw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="CKD-ck-1SX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4M-u6-qe3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

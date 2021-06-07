@@ -57,8 +57,8 @@
 		7673B8512647D799007D062C /* MyAnimalPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7673B84F2647D799007D062C /* MyAnimalPageCollectionViewCell.xib */; };
 		767BD809261968680051DDEC /* ConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767BD808261968680051DDEC /* ConceptTableViewCell.swift */; };
 		767BD80C2619687C0051DDEC /* ConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767BD80B2619687C0051DDEC /* ConceptViewController.swift */; };
-		7686723E261C4FB90037A4F3 /* Tab1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7686723C261C4FB90037A4F3 /* Tab1.storyboard */; };
-		76867241261C4FCF0037A4F3 /* Tab2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76867240261C4FCF0037A4F3 /* Tab2.storyboard */; };
+		7686723E261C4FB90037A4F3 /* RandomLetterTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7686723C261C4FB90037A4F3 /* RandomLetterTab.storyboard */; };
+		76867241261C4FCF0037A4F3 /* CustomizeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76867240261C4FCF0037A4F3 /* CustomizeTab.storyboard */; };
 		76867245261C4FFF0037A4F3 /* LetterListTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76867243261C4FFF0037A4F3 /* LetterListTab.storyboard */; };
 		76867248261C501C0037A4F3 /* SettingTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76867247261C501C0037A4F3 /* SettingTab.storyboard */; };
 		7686724D261C51090037A4F3 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7686724B261C51090037A4F3 /* SignUp.storyboard */; };
@@ -143,8 +143,8 @@
 		7673B84F2647D799007D062C /* MyAnimalPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAnimalPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		767BD808261968680051DDEC /* ConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptTableViewCell.swift; sourceTree = "<group>"; };
 		767BD80B2619687C0051DDEC /* ConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptViewController.swift; sourceTree = "<group>"; };
-		7686723D261C4FB90037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tab1.storyboard; sourceTree = "<group>"; };
-		76867240261C4FCF0037A4F3 /* Tab2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Tab2.storyboard; path = "anipal 1/View/Tab2.storyboard"; sourceTree = SOURCE_ROOT; };
+		7686723D261C4FB90037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RandomLetterTab.storyboard; sourceTree = "<group>"; };
+		76867240261C4FCF0037A4F3 /* CustomizeTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CustomizeTab.storyboard; path = "anipal 1/View/CustomizeTab.storyboard"; sourceTree = SOURCE_ROOT; };
 		76867244261C4FFF0037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LetterListTab.storyboard; sourceTree = "<group>"; };
 		76867247261C501C0037A4F3 /* SettingTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SettingTab.storyboard; path = "anipal 1/View/SettingTab.storyboard"; sourceTree = SOURCE_ROOT; };
 		7686724C261C51090037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -324,8 +324,8 @@
 			children = (
 				76D1785225CA922900C5ED37 /* Main.storyboard */,
 				7686724B261C51090037A4F3 /* SignUp.storyboard */,
-				7686723C261C4FB90037A4F3 /* Tab1.storyboard */,
-				76867240261C4FCF0037A4F3 /* Tab2.storyboard */,
+				7686723C261C4FB90037A4F3 /* RandomLetterTab.storyboard */,
+				76867240261C4FCF0037A4F3 /* CustomizeTab.storyboard */,
 				76867243261C4FFF0037A4F3 /* LetterListTab.storyboard */,
 				76867247261C501C0037A4F3 /* SettingTab.storyboard */,
 				6C2C429226178AF1007D2D71 /* CustomView */,
@@ -458,7 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7686723E261C4FB90037A4F3 /* Tab1.storyboard in Resources */,
+				7686723E261C4FB90037A4F3 /* RandomLetterTab.storyboard in Resources */,
 				6C6A9A0C261E14FF00EF93F4 /* LetterListCell.xib in Resources */,
 				6C1BED05265198940039E454 /* ComingAnimalCell.xib in Resources */,
 				6C1BED0D2652502E0039E454 /* ComingAnimalTableView.xib in Resources */,
@@ -467,7 +467,7 @@
 				76D1785625CA922900C5ED37 /* Assets.xcassets in Resources */,
 				6C2C429726178B08007D2D71 /* FavoriteView.xib in Resources */,
 				76D1785425CA922900C5ED37 /* Main.storyboard in Resources */,
-				76867241261C4FCF0037A4F3 /* Tab2.storyboard in Resources */,
+				76867241261C4FCF0037A4F3 /* CustomizeTab.storyboard in Resources */,
 				7657F0BD25CAE46400403881 /* 구글로고.jpg in Resources */,
 				7686724D261C51090037A4F3 /* SignUp.storyboard in Resources */,
 				6C1BECFD265174350039E454 /* ComingAnimals.xib in Resources */,
@@ -619,12 +619,12 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		7686723C261C4FB90037A4F3 /* Tab1.storyboard */ = {
+		7686723C261C4FB90037A4F3 /* RandomLetterTab.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7686723D261C4FB90037A4F3 /* Base */,
 			);
-			name = Tab1.storyboard;
+			name = RandomLetterTab.storyboard;
 			sourceTree = "<group>";
 		};
 		76867243261C4FFF0037A4F3 /* LetterListTab.storyboard */ = {

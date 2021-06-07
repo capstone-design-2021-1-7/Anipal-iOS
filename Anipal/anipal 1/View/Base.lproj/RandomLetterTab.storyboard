@@ -482,7 +482,7 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="homekit" catalog="system" width="32" height="32"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="mainBackground" width="1172" height="2537.5"/>
         <image name="paperplane.circle" catalog="system" width="128" height="121"/>
         <image name="xmark.circle" catalog="system" width="128" height="121"/>
