@@ -28,7 +28,6 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
-  - SwiftLint (0.43.1)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -36,7 +35,6 @@ DEPENDENCIES:
   - DropDown
   - FBSDKLoginKit
   - GoogleSignIn
-  - SwiftLint
   - SwiftyJSON
 
 SPEC REPOS:
@@ -49,7 +47,6 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
-    - SwiftLint
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -61,9 +58,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: e7ddc78e2171826ec10078cc6ed7d9d4c66954fb
+PODFILE CHECKSUM: 06abc91a8e29759281acd9cdc0eb354c19dd306a
 
 COCOAPODS: 1.10.1
