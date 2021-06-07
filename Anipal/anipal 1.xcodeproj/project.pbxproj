@@ -144,9 +144,9 @@
 		767BD808261968680051DDEC /* ConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptTableViewCell.swift; sourceTree = "<group>"; };
 		767BD80B2619687C0051DDEC /* ConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptViewController.swift; sourceTree = "<group>"; };
 		7686723D261C4FB90037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tab1.storyboard; sourceTree = "<group>"; };
-		76867240261C4FCF0037A4F3 /* Tab2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tab2.storyboard; sourceTree = SOURCE_ROOT; };
+		76867240261C4FCF0037A4F3 /* Tab2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Tab2.storyboard; path = "anipal 1/View/Tab2.storyboard"; sourceTree = SOURCE_ROOT; };
 		76867244261C4FFF0037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LetterListTab.storyboard; sourceTree = "<group>"; };
-		76867247261C501C0037A4F3 /* SettingTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingTab.storyboard; sourceTree = SOURCE_ROOT; };
+		76867247261C501C0037A4F3 /* SettingTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SettingTab.storyboard; path = "anipal 1/View/SettingTab.storyboard"; sourceTree = SOURCE_ROOT; };
 		7686724C261C51090037A4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		7691936B25D5000A0094B5BF /* LetterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListViewController.swift; sourceTree = "<group>"; };
 		7691937025D516630094B5BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
