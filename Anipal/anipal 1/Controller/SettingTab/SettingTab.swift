@@ -93,7 +93,7 @@ class SettingTab: UIViewController, sendBackDelegate {
                             }
                             
                             DispatchQueue.main.async {
-                                let storyboard = UIStoryboard(name: "Tab2", bundle: nil)
+                                let storyboard = UIStoryboard(name: "CustomizeTab", bundle: nil)
                                 guard let missionVC = storyboard.instantiateViewController(identifier: "mission") as? MissionView else {return}
                                 missionVC.accessoryInfo = detail
                                 missionVC.okBtnTitle = "Get"

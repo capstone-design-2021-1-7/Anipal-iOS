@@ -14,7 +14,7 @@ import SwiftyJSON
 class Login: UIViewController {
     @IBOutlet var facebookBtn: UIButton!
     @IBOutlet var googleBtn: UIButton!
-    @IBOutlet var appleBtn: UIButton!
+    // @IBOutlet var appleBtn: UIButton!
     @IBOutlet var logoImage: UIImageView!
     
     var images: [UIImage] = []
@@ -69,7 +69,7 @@ class Login: UIViewController {
         googleBtn.layer.cornerRadius = 10
         googleBtn.layer.borderColor = UIColor.gray.cgColor
         googleBtn.layer.borderWidth = 1
-        appleBtn.layer.cornerRadius = 10
+        // appleBtn.layer.cornerRadius = 10
         logoImage.layer.cornerRadius = logoImage.frame.height/2
     }
     

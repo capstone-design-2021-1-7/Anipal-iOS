@@ -44,21 +44,6 @@
                                     <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e1X-Db-8uH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-wV-AE0">
-                                <rect key="frame" x="40" y="613" width="295" height="55"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="VIs-tg-V7O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="  Sign In with Apple">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="appleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZTE-Na-8lj"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="asd-eY-Zmn">
                                 <rect key="frame" x="97.666666666666686" y="218" width="180" height="180"/>
                                 <constraints>
@@ -70,23 +55,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WEN-wV-AE0" secondAttribute="trailing" constant="40" id="83n-mS-5Rp"/>
                             <constraint firstItem="asd-eY-Zmn" firstAttribute="centerX" secondItem="hjl-61-IYf" secondAttribute="centerX" id="FCq-R0-Wdb"/>
                             <constraint firstItem="hjl-61-IYf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="HcA-dy-nep"/>
                             <constraint firstItem="LDy-sb-Ujg" firstAttribute="top" secondItem="hjl-61-IYf" secondAttribute="bottom" constant="20" id="JUm-Ah-kw2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WEN-wV-AE0" secondAttribute="bottom" constant="110" id="TQJ-aF-AvK"/>
                             <constraint firstItem="hjl-61-IYf" firstAttribute="top" secondItem="asd-eY-Zmn" secondAttribute="bottom" constant="65" id="Uou-fB-Tog"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hjl-61-IYf" secondAttribute="trailing" constant="40" id="d5F-W6-8fS"/>
-                            <constraint firstItem="WEN-wV-AE0" firstAttribute="top" secondItem="LDy-sb-Ujg" secondAttribute="bottom" constant="20" id="euL-DH-7wd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LDy-sb-Ujg" secondAttribute="trailing" constant="40" id="iyx-RA-9yG"/>
-                            <constraint firstItem="WEN-wV-AE0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nOV-6G-cnL"/>
                             <constraint firstItem="asd-eY-Zmn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="pvF-PE-KCl"/>
                             <constraint firstItem="LDy-sb-Ujg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="upQ-Vu-GDS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h5q-OS-Lyq"/>
                     <connections>
-                        <outlet property="appleBtn" destination="WEN-wV-AE0" id="Ahg-bu-WTk"/>
                         <outlet property="facebookBtn" destination="hjl-61-IYf" id="6Qx-nW-kR6"/>
                         <outlet property="googleBtn" destination="LDy-sb-Ujg" id="d1a-0b-8bB"/>
                         <outlet property="logoImage" destination="asd-eY-Zmn" id="k7J-He-EAF"/>
