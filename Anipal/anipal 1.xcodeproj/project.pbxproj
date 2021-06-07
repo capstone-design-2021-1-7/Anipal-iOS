@@ -131,7 +131,7 @@
 		7636AE91264FFB1C0040F2F6 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		7657F0BC25CAE46400403881 /* 구글로고.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "구글로고.jpg"; sourceTree = "<group>"; };
 		76686FC725CE2C5F00536E36 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
-		76686FCA25CE2FFC00536E36 /* WritingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WritingPage.swift; path = ../Tab1/WritingPage.swift; sourceTree = "<group>"; };
+		76686FCA25CE2FFC00536E36 /* WritingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPage.swift; sourceTree = "<group>"; };
 		76686FD125CE9F3E00536E36 /* SelectAnimalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnimalCollectionViewCell.swift; sourceTree = "<group>"; };
 		76686FD425CE9FE800536E36 /* SelectAnimalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnimalPage.swift; sourceTree = "<group>"; };
 		76686FE525CEAB7300536E36 /* animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animal.swift; sourceTree = "<group>"; };
@@ -237,19 +237,20 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		7686722C261C4D930037A4F3 /* Tab1 */ = {
+		7686722C261C4D930037A4F3 /* RandomLetterTab */ = {
 			isa = PBXGroup;
 			children = (
+				76686FCA25CE2FFC00536E36 /* WritingPage.swift */,
 				76686FC725CE2C5F00536E36 /* MainPage.swift */,
 				76D3E797263930F7007BD8E8 /* ConfirmLetter.swift */,
 				76686FD425CE9FE800536E36 /* SelectAnimalPage.swift */,
 				76686FD125CE9F3E00536E36 /* SelectAnimalCollectionViewCell.swift */,
 				762A36D32621CCEE00BDC643 /* SelectAnimal1.swift */,
 			);
-			path = Tab1;
+			path = RandomLetterTab;
 			sourceTree = "<group>";
 		};
-		76867230261C4DF30037A4F3 /* Tab2 */ = {
+		76867230261C4DF30037A4F3 /* CustomizeTab */ = {
 			isa = PBXGroup;
 			children = (
 				7673B84C2647D3C0007D062C /* MyAnimalPage.swift */,
@@ -261,13 +262,12 @@
 				76C30AE8264B0B9500035891 /* AnimalDetail.swift */,
 				76C30AEA264B1EF800035891 /* MissionView.swift */,
 			);
-			path = Tab2;
+			path = CustomizeTab;
 			sourceTree = "<group>";
 		};
 		76867233261C4E3C0037A4F3 /* LetterListTab */ = {
 			isa = PBXGroup;
 			children = (
-				76686FCA25CE2FFC00536E36 /* WritingPage.swift */,
 				7691936B25D5000A0094B5BF /* LetterListViewController.swift */,
 				7691937325D54DDA0094B5BF /* LetterListTableViewCell.swift */,
 				76AF5B4825D95A4300CA4183 /* LetterDetailViewController.swift */,
@@ -337,8 +337,8 @@
 			isa = PBXGroup;
 			children = (
 				76867236261C4E8D0037A4F3 /* SignUp */,
-				7686722C261C4D930037A4F3 /* Tab1 */,
-				76867230261C4DF30037A4F3 /* Tab2 */,
+				7686722C261C4D930037A4F3 /* RandomLetterTab */,
+				76867230261C4DF30037A4F3 /* CustomizeTab */,
 				76867233261C4E3C0037A4F3 /* LetterListTab */,
 				76867235261C4E600037A4F3 /* SettingTab */,
 				7668701B25D13AB200536E36 /* StartPage.swift */,
